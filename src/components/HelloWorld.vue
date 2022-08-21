@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <p>{{ info }}</p>
+
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
@@ -111,10 +113,31 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
+  },
+
+  data() {
+    return {
+      info: null,
+    };
+  },
+
+  mounted() {
+    axios
+      .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      .then((response) => {
+        this.info = response.data.bpi;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
   },
 };
 </script>
