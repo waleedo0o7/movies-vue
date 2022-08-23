@@ -1,11 +1,23 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import PopularMovies from "../components/PopularMovies.vue";
+import MovieDetails from "../components/MovieDetails.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
     component: HomeView,
+  }, {
+    path: "/popular-movies",
+    name: "popularMovies",
+    component: PopularMovies,
+  },
+  {
+    path: "/movie-details/:id",
+    name: "MovieDetails",
+    component: MovieDetails,
+    props: true
   },
   {
     path: "/about",
