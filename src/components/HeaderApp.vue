@@ -1,5 +1,5 @@
 <template>
-  <div class="main-header mb-4">
+  <div class="main-header">
     <nav>
       <router-link to="/popular-movies">Popular Movies</router-link>
       <router-link to="/">
@@ -9,7 +9,7 @@
           alt="website logo"
         />
       </router-link>
-      <router-link to="/about">Trending Movies</router-link>
+      <router-link to="/trending-movies">Trending Movies</router-link>
     </nav>
   </div>
   <!-- main-header -->
